@@ -1,0 +1,381 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<title>Vis & Society Assignment 3</title>
+	<link rel="stylesheet" href="https://vis-society.github.io/assignments/report.css" />
+
+	<style>
+		.hidden {
+			display: none !important;
+		}
+		.chart-box { 
+			width: 100%;
+			max-width: 800px;
+			margin: 20px auto;
+		}
+
+		.chart-box img {
+			width: 100%;
+			height: auto;
+			display: block;
+		}
+		
+		/* Styling the button */
+		#toggleBtn {
+			padding: 10px 20px;
+			background-color: #007bff;
+			color: white;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-weight: bold;
+		}
+		#toggleBtn:hover { background-color: #0056b3; }
+	</style>
+</head>
+
+<body>
+	<header>
+		<h1>
+			<small>Assignment 3</small>
+			Visualization Critique & Redesign
+		</h1>
+
+		<p>
+			<strong>Maxwell Sun</strong> — <em>mrsun@mit.edu</em>
+		</p>
+	</header>
+
+	<main>
+		<section>
+			<h2>Reading & Critique</h2>
+
+			<figure>
+				<img src="https://vis-society.github.io/assets/imgs/covid-spiral.png" alt="" />
+			</figure>
+
+			<p>
+				<strong>Insights about the data/visualization:</strong>
+			</p>
+
+			<ul>
+				<li>
+					The number of new covid cases seems to ebb and flow 
+					without a strong general directional trend (i.e. 
+					consistently increasing or consistently decreasing).
+				</li>
+				<li>
+					New covid cases seem to come in "waves" in which there 
+					are periods of time of large amounts of new covid cases.
+				</li>
+				<li>
+					The first major wave is around the start of 2021 
+					(December 2020 - January 2021). The next major wave is 
+					around August to September of 2021. The third wave is 
+					the most recent Omnicron outbreak happening at the start 
+					of 2022.
+				</li>
+				<li>
+					It seems that the recent Omnicron outbreak will generate 
+					the largest wave of new Covid cases.
+				</li>
+				<li>
+					The number of new cases in June 2021 was parituclarly low.
+				</li>
+			</ul>
+
+			<p>
+				<strong>Design Critique:</strong>
+			</p>
+
+			<p>
+				Ignoring the intriguing spiral design for the time dimension, 
+				many of the design choices seem to be quite effective in 
+				making the visualization readable. Firslty, I appreciated 
+				a lot of the labeling and minor design choices. Each year is 
+				labeled near the January axis with an arrow to make clear 
+				both the direction of time in this chart and where to start 
+				reading (i.e., the center). The 7-day average label is 
+				a nice detail for us to know, although maybe it could be 
+				included in the title as well. I also believe that the legend 
+				is trying to communicate that a linear scale is being used, 
+				since the 0 becomes 150k via straight lines,
+				although this is not super clear (ideally this should 
+				be made explicit). Using width to represent the measure of 
+				interest is a good idea, given that the time dimension must 
+				use up the whole plane's dimensionality. Also, the solid 
+				border adds visibility and emphasizes the width of the 
+				spiraling curve. Lastly, the specific measure of choice, 
+				7-day rolling averages, is an intelligent choice that 
+				eliminates weekly periodicity and random noise, so that we 
+				are mainly exposed to trends over large periods.
+			</p>
+			<p>
+				Now, the choice of this spiral design is a little bit 
+				confusing and suspicious to me. It does have some symbolic 
+				significance by placing 2020 in the center of the spiral, 
+				sort of communicating that this was the "origin" of the 
+				pandemic. Also, it still doesn't lose the directionality 
+				of time given the effective labeling, and it also allows for 
+				us to see if there is any intrayear seasonality, although I 
+				do not believe there seems to be any. (The number of years is 
+				likely to small for there to be any observable intrayear 
+				seasonality, anyway.) Overall, I think the spiral choice 
+				lacks sufficient motivation for it to be implemented: 
+				I think it would be better for time to a simple 1D linear 
+				dimension like in a typical line chart. The way the 
+				visualization is now, the reader is required to move their 
+				eyes in circles and is more likely to jump around different 
+				time periods with their eyes. In addition, one should note that 
+				the length of the curve corresponding to a fixed time period 
+				(e.g. 3 months) is actually increasing as time goes on. That is, 
+				time gets more and more stretched as time increases. 
+				Furthermore, this rate of stretching is nonconstant since 
+				sometimes the curvature is that of a circle centered at the 
+				origin and sometimes the distance from the origin is increasing. 
+				These inconsistencies do not make sense, in my opinion, and 
+				they add unnecessary complexity to the chart. I do not see 
+				what would be lost by switching to a simple linear line chart.
+			</p>
+		</section>
+
+		<section>
+			<h2>Visualization Sketches</h2>
+
+      <figure>
+				<img src="../../images/a3_sketch1.jpg" alt="" />
+				<figcaption>
+					The above plot is a re-iteration of the original 
+					visualization as a simpler line plot. Here, time is 
+					1-dimnesional and uniform (not stretching). The original 
+					article publication date is labeled, which corresponds
+					to the date that the original spiral chart stops at. 
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 1:
+			</p>
+
+			<ul>
+				<li>
+					As discussed in my critique, I believed that switching to a 
+					line plot would reduce unnecessary complexity, so that is what 
+					I did. 
+				</li>
+				<li>
+					I think this plot was a successful improvement over the 
+					original visualization by simply being simpler and easier to 
+					read, without losing any important communicating features. 
+					The three "waves" of new covid cases are more clearly
+					represented, as are some additional mini-waves.
+				</li>
+				<li>
+					One possible advantage of the spiral plot is that it 
+					covers more distance for a comparable area. That is, the 
+					black line (which represents the time axis) in the original 
+					plot is much longer, so I want to experiment with possible ways 
+					to lengthen this axis without just making a super wide 
+					line plot that wouldn't look good in a browser.
+				</li>
+			</ul>
+
+			<figure>
+				<img src="../../images/a3_sketch2.jpg" alt="" />
+				<figcaption>
+					The plot above is a series of line plots that is a re-iteration 
+					of the first sketch. It essentially jsut breaks up the plot 
+					into three separate plots, one for each year, where each 
+					plot begins at the previous year's December and ends at the 
+					next year's January 6. In particular, the original visualization's 
+					ending date (January 6, 2022) is labeled on the second plot as the 
+					ending.
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 2:
+			</p>
+
+			<ul>
+				<li>
+					I wanted to see if I could stretch out the time dimension 
+					more and if this would allow the viewer to observe more 
+					detail. I also wanted to see if I could make the original 
+					ending date a more clear "end" while still incporating data 
+					from after that date in the 2022 graph.
+				</li>
+				<li>
+					I also thought it could expose any intrayear seasonality that 
+					I may have missed from the original visualization. There wasn't any 
+					to be seen, however. 
+				</li>
+				<li>
+					I think I was successful in separating data by the date 2022-01-06, 
+					but there is also a somewhat arbitrary time split at the start of 
+					2021. In addition, the ease of reading is worse than expected; I do 
+					not like how the different time periods seem so discretely separated 
+					even with the small amount of overlap. Comparing height of the 
+					lines between the graphs is also slightly harder than before, and the 
+					eye isn not drawn to the peak in January 2022 as much anymore
+					(since it is represnted twice, which is akward).
+				</li>
+				<li>
+					In general, I think splitting the time periods introduces more 
+					downsides than upsides. In the next sketch, I want to explore 
+					different scaling methods than linear scaling.
+				</li>
+			</ul>
+
+			<figure>
+				<img src="../../images/a3_sketch3.jpg" alt="" />
+				<figcaption>
+					A reiteration of the first sketch using log-scale. The 
+					log of the 7-day rolling average of daily new Covid cases
+					is plotted over time, where we start the graph when the 
+					number of new daily covid cases is above 1000. 
+				</figcaption>
+			</figure>
+
+			<p>
+				Design Rationale for Sketch 3:
+			</p>
+
+			<ul>
+				<li>
+					I was wondering if plotting in log-scale could reveal some 
+					patterns or trends not seen before in the linear scale.
+				</li>
+				<li>
+					The log-scale sketch seems to equally emphasis peaks and 
+					troughs, so that the three discrete waves from before are 
+					no longer as emphasized. While lows of daily new covid cases 
+					could be interesting to look at, I believe the waves/peaks 
+					are a bit more important to communicate, since this is the 
+					thing that is trying to be prevented.
+				</li>
+				<li>
+					Also, the log-scale makes the highest peak in January 2022 
+					seem much less dramatic. I am not sure, but I feel that it 
+					could mislead viewers by suggesting that the new wave of 
+					Omicron cases is not that much more signficiant than 
+					previous waves.
+				</li>
+				<li>
+					Overall, I think that the first sketch is still better, 
+					and the only concern I have is that about making the 
+					the new case data from after the publication of the 
+					original article visually different from the data that
+					is shared with that visualization.
+				</li>
+			</ul>
+		</section>
+
+		<section>
+			<h2>Final Visualization Design</h2>
+			<figure>
+
+			<div style="text-align:center;">
+				<button id="toggleBtn" onclick="toggleChart()">Hide Future Case Counts</button>
+				
+				<div class="chart-box">
+					<img id="imgPartial" src="../../images/covid_cases_before_pub_date.png" alt="Partial Data" class="hidden">
+					
+					<img id="imgFull" src="../../images/covid_cases_full_range.png" alt="Full Data">
+				</div>
+			</div>
+
+			<script>
+				function toggleChart() {
+				const partial = document.getElementById('imgPartial');
+				const full = document.getElementById('imgFull');
+				const btn = document.getElementById('toggleBtn');
+
+				if (full.classList.contains('hidden')) {
+					full.classList.remove('hidden');
+					partial.classList.add('hidden');
+					btn.innerText = "Hide Future Case Counts";
+				} else {
+					full.classList.add('hidden');
+					partial.classList.remove('hidden');
+					btn.innerText = "Show Future Case Counts";
+				}
+				}
+			</script>
+      
+			
+				<figcaption>
+					The plot above is essentially a refurbished version of 
+					sketch 1 that I created using Datawrapper. The button
+					allows the viewer to switch between a figure that only 
+					goes up until the date of publication of the original 
+					visualization (so that it uses the exact same set of 
+					data) and a figure that goes through the first quarter of 
+					2022. This allows the viewer to compare the realization 
+					of the Covid situation with predictions made by modelers 
+					in January 2022. 
+				</figcaption>
+			</figure>
+
+		</section>
+
+		<section>
+			<h2>Final Writeup</h2>
+
+			<p>
+				In my final design, I essentially just converted the original 
+				visualization into a simpler line plot where time is 
+				linear and one-dimensional. I believe that this simpler and more
+				conventioanl line chart allows for the viewer to easier 
+				observe the severity of the Omicron variant's spike in 
+				new cases in January 2022 and compare it to previous spikes 
+				in new case numbers. I also included some annotations 
+				and a button that allows for viewers to either view the same 
+				exact data that was used in that original visualizaiton or 
+				gain insight into what realized after the original visualizaiton 
+				was released. This could be useful for direct comparison 
+				with the original figure vs. trying to gain more insight about 
+				the early 2022 Omicron spike. I also made the line become a 
+				different color after this publication date, so that it is 
+				clear on the longer-horizon chart where the new data 
+				comes in. I used the same measure in the 
+				original visualizaiton (a 7-day rolling average) since I 
+				believe that this already sufficiently reduces weekly seasonality 
+				and random noise to provide the most insight. Laslty, I 
+				decided to make a minor addition of an annotation that shows 
+				the origin of the Omicron variant, just so that the major 
+				January 2022 spike can be appropriately associated with 
+				the Omicron variant. That is, I am trying to tell the story 
+				that this new large spike, which is larger than any other 
+				spike seen before, is caused by Omicron.
+			</p>
+
+			<p>
+				In my original critique, my main issue was with the spiral 
+				design choice and how that does not appropriately represent 
+				the time dimension. I believe that my more simple visualization 
+				solves these problems by reducing complexity and allowing 
+				for easier viewing while also making the passage of time 
+				more uniform and intuitive. One thing that I did lose by doing 
+				so was the lack of length/space on a linear line chart. 
+				I had the idea of splitting the line chart up into a series 
+				of vertically stacked charts, but this did not work out as 
+				well as I hoped for. I also believe that this isn't a big 
+				problem since I do not think there are a ton of super 
+				important lower time scale observations, nor do I think such 
+				observations would be super relevant. 
+			</p>
+
+			<!-- <p>
+        DESCRIBE YOUR RATIONALE TO JUSTIFY THE DECISIONS FOR YOUR FINAL DESIGN.
+				WHAT ARE YOU TRYING TO CONVEY, AND HOW DOES YOUR DESIGN FACILITATE THIS?
+      </p> -->
+
+			<!-- <p>
+        REFLECT ON HOW YOUR FINAL DESIGN DOES OR DOES NOT ADDRESS YOUR ORIGINAL CRITIQUE.
+				WHAT TENSIONS OR TRADEOFFS DID YOU ENCOUNTER? WHAT DID NOT WORK OUT AS ANTICIPATED?
+      </p> -->
+		</section>
+	</main>
+</body>
+</html>
